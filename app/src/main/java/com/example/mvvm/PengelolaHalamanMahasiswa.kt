@@ -1,5 +1,6 @@
 package com.example.mvvm
 
+
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -7,6 +8,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -22,7 +24,7 @@ enum class Halaman{
 }
 
 @Composable
-fun PengelolaHalamanMahasiswa(
+fun PengelolaanHalaman(
     modifier: Modifier = Modifier,
     navHost: NavHostController = rememberNavController(),
     viewModel: MahasiswaViewModel = viewModel()
@@ -33,7 +35,6 @@ fun PengelolaHalamanMahasiswa(
             modifier = modifier.padding(isipadding),
             navController = navHost, startDestination = Halaman.Formulir.name
         ) {
-
             composable(route = Halaman.Formulir.name) {
                 val konteks = LocalContext.current
                 FormMahasiswaView(
@@ -46,12 +47,11 @@ fun PengelolaHalamanMahasiswa(
                     }
                 )
             }
-
             composable(route = Halaman.Detail.name){
                 DetailMahasiswaView(
                     uiStateMahasiswa = uiState,
                     onClickButton = {
-
+                        navHost.popBackStack()
                     }
                 )
             }
