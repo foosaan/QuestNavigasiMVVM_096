@@ -10,3 +10,4 @@ data class DataMahasiswa(
     val nohp: String = "",
 )
 
+
