@@ -8,6 +8,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.mvvm.ui.vievmodel.MahasiswaViewModel
 
@@ -28,6 +29,11 @@ fun PengelolaHalamanMahasiswa(
             modifier = modifier.padding(isipadding),
             navController = navHost, startDestination = Halaman.Formulir.name
         ) {
+
+            composable(route = Halaman.Formulir.name) {
+
+            }
+
         }
     }
 }
